@@ -82,6 +82,7 @@ tree-sitter-ocamllex = { git = "https://github.com/314eter/tree-sitter-ocamllex.
 tree-sitter-query = { git = "https://github.com/nvim-treesitter/tree-sitter-query" }
 tree-sitter-rust = { git = "https://github.com/tree-sitter/tree-sitter-rust.git", rev = "e0e8b6de6e4aa354749c794f5f36a906dcccda74"}
 tree-sitter-toml = { git = "https://github.com/tree-sitter/tree-sitter-toml.git" }
+tree-sitter-openscad = { git = "https://github.com/bollian/tree-sitter-openscad.git" }
 unescape = "0.1"
 wasm-bindgen = "=0.2.91"
 wasm-bindgen-futures = "0.4"
