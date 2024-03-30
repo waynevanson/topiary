@@ -1318,6 +1318,7 @@ dependencies = [
  "tree-sitter-nickel",
  "tree-sitter-ocaml",
  "tree-sitter-ocamllex",
+ "tree-sitter-openscad",
  "tree-sitter-query",
  "tree-sitter-rust",
  "tree-sitter-toml",
@@ -1434,6 +1435,15 @@ dependencies = [
 name = "tree-sitter-ocamllex"
 version = "0.20.2"
 source = "git+https://github.com/314eter/tree-sitter-ocamllex.git#4b9898ccbf198602bb0dec9cd67cc1d2c0a4fad2"
+dependencies = [
+ "cc",
+ "tree-sitter",
+]
+
+[[package]]
+name = "tree-sitter-openscad"
+version = "0.5.1"
+source = "git+https://github.com/bollian/tree-sitter-openscad.git#bb1e12023e59489c0892af0c0c9a5b323af69df6"
 dependencies = [
  "cc",
  "tree-sitter",

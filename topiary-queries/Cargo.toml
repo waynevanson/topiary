@@ -23,6 +23,7 @@ default = [
   "rust",
   "toml",
   "tree_sitter_query",
+  "openscad"
 ]
 bash = []
 json = []
@@ -33,3 +34,4 @@ ocamllex = []
 rust = []
 toml = []
 tree_sitter_query = []
+openscad =[]
