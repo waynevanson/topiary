@@ -20,10 +20,10 @@ default = [
   "ocaml",
   "ocaml_interface",
   "ocamllex",
+  "openscad",
   "rust",
   "toml",
-  "tree_sitter_query",
-  "openscad"
+  "tree_sitter_query"
 ]
 bash = []
 json = []
@@ -31,7 +31,7 @@ nickel = []
 ocaml = []
 ocaml_interface = []
 ocamllex = []
+openscad =[]
 rust = []
 toml = []
 tree_sitter_query = []
-openscad =[]

@@ -1295,6 +1295,7 @@ dependencies = [
  "tree-sitter-nickel",
  "tree-sitter-ocaml",
  "tree-sitter-ocamllex",
+ "tree-sitter-openscad",
  "tree-sitter-query",
  "tree-sitter-rust",
  "tree-sitter-toml",

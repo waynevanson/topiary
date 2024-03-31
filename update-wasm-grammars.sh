@@ -75,6 +75,18 @@ ocamllex() {
   echo -e "${GREEN}Ocamllex: Done${NC}"
 }
 
+openscad() {
+  echo -e "${BLUE}OpenSCAD: Fetching${NC}"
+  git clone --depth=1 https://github.com/bollian/tree-sitter-openscad.git "${WORKDIR}/tree-sitter-openscad" &> /dev/null
+  REV=$(ref_for_language "openscad")
+  pushd "${WORKDIR}/tree-sitter-openscad" &> /dev/null
+    git checkout "$REV" &> /dev/null
+  popd &> /dev/null
+  echo -e "${ORANGE}OpenSCAD: Building${NC}"
+  tree-sitter build-wasm "${WORKDIR}/tree-sitter-openscad"
+  echo -e "${GREEN}OpenSCAD: Done${NC}"
+}
+
 bash() {
   echo -e "${BLUE}Bash: Fetching${NC}"
   git clone --depth=1 https://github.com/tree-sitter/tree-sitter-bash.git "${WORKDIR}/tree-sitter-bash" &> /dev/null
@@ -111,18 +123,6 @@ toml() {
   echo -e "${GREEN}TOML: Done${NC}"
 }
 
-openscad() {
-  echo -e "${BLUE}OpenSCAD: Fetching${NC}"
-  git clone --depth=1 https://github.com/tree-sitter/tree-sitter-openscad.git "${WORKDIR}/tree-sitter-openscad" &> /dev/null
-  REV=$(ref_for_language "openscad")
-  pushd "${WORKDIR}/tree-sitter-openscad" &> /dev/null
-    git checkout "$REV" &> /dev/null
-  popd &> /dev/null
-  echo -e "${ORANGE}OpenSCAD: Building${NC}"
-  tree-sitter build-wasm "${WORKDIR}/tree-sitter-openscad"
-  echo -e "${GREEN}OpenSCAD: Done${NC}"
-}
-
 tree-sitter-query() {
   echo -e "${BLUE}Query: Fetching${NC}"
   git clone --depth=1 https://github.com/nvim-treesitter/tree-sitter-query.git "${WORKDIR}/tree-sitter-query" &> /dev/null
@@ -135,6 +135,6 @@ tree-sitter-query() {
   echo -e "${GREEN}Query: Done${NC}"
 }
 
-(trap 'kill 0' SIGINT; json & nickel & ocaml & ocamllex & bash & rust & toml & openscad & tree-sitter-query & wait)
+(trap 'kill 0' SIGINT; json & nickel & ocaml & ocamllex & openscad & bash & rust & toml & tree-sitter-query & wait)
 
 echo -e "${GREEN}Done! All grammars have been updated${NC}"

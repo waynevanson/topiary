@@ -329,10 +329,10 @@ where
         "ocaml" => Ok(topiary_queries::ocaml().into()),
         "ocaml_interface" => Ok(topiary_queries::ocaml_interface().into()),
         "ocamllex" => Ok(topiary_queries::ocamllex().into()),
+        "openscad" => Ok(topiary_queries::openscad().into()),
         "rust" => Ok(topiary_queries::rust().into()),
         "toml" => Ok(topiary_queries::toml().into()),
         "tree_sitter_query" => Ok(topiary_queries::tree_sitter_query().into()),
-        "openscad" => Ok(topiary_queries::openscad().into()),
         name => Err(TopiaryError::Bin(
             format!("The specified language is unsupported: {}", name),
             Some(CLIError::UnsupportedLanguage(name.to_string())),
