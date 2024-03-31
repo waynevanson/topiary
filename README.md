@@ -4,8 +4,8 @@
 [![CI Status][badge-ci]][badge-ci-link]
 [![Discord][badge-discord]][badge-discord-link]
 
-* [Topiary web site][topiary-website]
-* [Topiary playground][topiary-playground]
+-   [Topiary web site][topiary-website]
+-   [Topiary playground][topiary-playground]
 
 Topiary aims to be a uniform formatter for simple languages, as part of
 the [Tree-sitter] ecosystem. It is named after the art of clipping or
@@ -41,41 +41,42 @@ grammar][tree-sitter-parsers] is defined for that language.
 
 Topiary has been created with the following goals in mind:
 
-* Use [Tree-sitter] for parsing, to avoid writing yet another grammar
-  for a formatter.
+-   Use [Tree-sitter] for parsing, to avoid writing yet another grammar
+    for a formatter.
 
-* Expect idempotency. That is, formatting of already-formatted code
-  doesn't change anything.
+-   Expect idempotency. That is, formatting of already-formatted code
+    doesn't change anything.
 
-* For bundled formatting styles to meet the following constraints:
+-   For bundled formatting styles to meet the following constraints:
 
-  * Be compatible with attested formatting styles used for that language
-    in the wild.
+    -   Be compatible with attested formatting styles used for that language
+        in the wild.
 
-  * Be faithful to the author's intent: if code has been written such
-    that it spans multiple lines, that decision is preserved.
+    -   Be faithful to the author's intent: if code has been written such
+        that it spans multiple lines, that decision is preserved.
 
-  * Minimise changes between commits such that diffs focus mainly on the
-    code that's changed, rather than superficial artefacts. That is, a
-    change on one line won't influence others, while the formatting
-    won't force you to make later, cosmetic changes when you modify your
-    code.
+    -   Minimise changes between commits such that diffs focus mainly on the
+        code that's changed, rather than superficial artefacts. That is, a
+        change on one line won't influence others, while the formatting
+        won't force you to make later, cosmetic changes when you modify your
+        code.
 
-  * Be well-tested and robust, so that the formatter can be trusted in
-    large projects.
+    -   Be well-tested and robust, so that the formatter can be trusted in
+        large projects.
 
-* For end users -- i.e., not formatting style authors -- the formatter
-  should:
+-   For end users -- i.e., not formatting style authors -- the formatter
+    should:
 
-  * Prescribe a formatting style that, while customisable, is uniform
-    and "good enough" for their codebase.
+    -   Prescribe a formatting style that, while customisable, is uniform
+        and "good enough" for their codebase.
 
-  * Run efficiently.
+    -   Run efficiently.
 
-  * Afford simple integration with other developer tools, such as
-    editors and language servers.
+    -   Afford simple integration with other developer tools, such as
+        editors and language servers.
 
 ## Language Support
+
 <!-- Update this section as necessary on new developments/releases -->
 
 [For now][topiary-issue4], the Tree-sitter grammars for the languages
@@ -89,11 +90,11 @@ These formatting styles cover their target language and fulfil Topiary's
 stated design goals. They are exposed, in Topiary, through a command
 line flag.
 
-* [OCaml] (both implementations and interfaces)
-* [OCamllex]
-* [Nickel]
-* [JSON]
-* [TOML]
+-   [OCaml] (both implementations and interfaces)
+-   [OCamllex]
+-   [Nickel]
+-   [JSON]
+-   [TOML]
 
 #### Experimental
 
@@ -101,9 +102,9 @@ These languages' formatting styles are subject to change and/or not yet
 considered production-ready. They can be accessed in Topiary by
 specifying the path to their query files.
 
-* [Rust]
-* [Bash]
-* [Tree Sitter Queries][tree-sitter-query]
+-   [Rust]
+-   [Bash]
+-   [Tree Sitter Queries][tree-sitter-query]
 
 ## Getting Started
 
@@ -145,7 +146,7 @@ development environment.
 Topiary integrates seamlessly with [pre-commit-hooks.nix]: add Topiary as input
 to your flake and, in [pre-commit-hooks.nix]'s setup, use:
 
-``` nix
+```nix
 pre-commit-check = nix-pre-commit-hooks.run {
   hooks = {
     nixfmt.enable = true; ## keep your normal hooks
@@ -166,6 +167,7 @@ own, dedicated help text.
 
 <!-- DO NOT REMOVE THE "usage" COMMENTS -->
 <!-- usage:start:ROOT -->
+
 ```
 CLI app for Topiary, the universal code formatter.
 
@@ -207,12 +209,14 @@ Options:
   -V, --version
           Print version
 ```
+
 <!-- usage:end:ROOT -->
 
 #### Format
 
 <!-- DO NOT REMOVE THE "usage" COMMENTS -->
 <!-- usage:start:format -->
+
 ```
 Format inputs
 
@@ -263,6 +267,7 @@ Options:
   -h, --help
           Print help (see a summary with '-h')
 ```
+
 <!-- usage:end:format -->
 
 When formatting inputs from disk, language selection is detected from
@@ -276,6 +281,7 @@ Note: `fmt` is a recognised alias of the `format` subcommand.
 
 <!-- DO NOT REMOVE THE "usage" COMMENTS -->
 <!-- usage:start:visualise -->
+
 ```
 Visualise the input's Tree-sitter parse tree
 
@@ -329,6 +335,7 @@ Options:
   -h, --help
           Print help (see a summary with '-h')
 ```
+
 <!-- usage:end:visualise -->
 
 When visualising inputs from disk, language selection is detected from
@@ -343,6 +350,7 @@ Note: `vis`, `visualize` and `view` are recognised aliases of the
 
 <!-- DO NOT REMOVE THE "usage" COMMENTS -->
 <!-- usage:start:config -->
+
 ```
 Print the current configuration
 
@@ -374,6 +382,7 @@ Options:
   -h, --help
           Print help (see a summary with '-h')
 ```
+
 <!-- usage:end:config -->
 
 Please refer to the [Configuration](#configuration-1) section below to
@@ -389,6 +398,7 @@ shell session or profile, as required.
 
 <!-- DO NOT REMOVE THE "usage" COMMENTS -->
 <!-- usage:start:completion -->
+
 ```
 Generate shell completion script
 
@@ -426,6 +436,7 @@ Options:
   -h, --help
           Print help (see a summary with '-h')
 ```
+
 <!-- usage:end:completion -->
 
 For example, in Bash:
@@ -538,7 +549,7 @@ mode](#configuration-collation).
 ### Configuration Options
 
 The configuration file contains a list of languages, each language configuration
-headed by ``[[language]]``. For instance, the one for Nickel is defined as such:
+headed by `[[language]]`. For instance, the one for Nickel is defined as such:
 
 ```toml
 [[language]]
@@ -548,7 +559,7 @@ extensions = ["ncl"]
 
 The `name` field is used by Topiary to associate the language entry with the
 query file and Tree-sitter grammar. This value should be written in lowercase.
-The `name` field is mandatory for every ``[[language]]`` block in every
+The `name` field is mandatory for every `[[language]]` block in every
 configuration file.
 
 The list of extensions is mandatory for every language, but does not necessarily
@@ -1005,16 +1016,13 @@ every context under which the different newline capture names operate:
 
 ```json
 {
-  "single-line": [1, 2, 3, 4],
-  "multi-line": [
-    1, 2,
-    3
-    , 4
-  ]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
 We'll apply a simplified set of JSON format queries that:
+
 1. Opens (and closes) an indented block for objects;
 2. Each key-value pair gets its own line, with the value split onto a
    second;
@@ -1040,16 +1048,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1,
-  2,
-  3,
-  4],
-  "multi-line":
-  [1,
-  2,
-  3,
-  4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1057,16 +1057,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1
-  ,2
-  ,3
-  ,4],
-  "multi-line":
-  [1
-  ,2
-  ,3
-  ,4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1074,13 +1066,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1,2,3,4],
-  "multi-line":
-  [1,
-  2,
-  3,
-  4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1088,13 +1075,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1,2,3,4],
-  "multi-line":
-  [1
-  ,2
-  ,3
-  ,4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1102,13 +1084,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1, 2, 3, 4],
-  "multi-line":
-  [1,
-  2,
-  3,
-  4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1116,13 +1093,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1 ,2 ,3 ,4],
-  "multi-line":
-  [1
-  ,2
-  ,3
-  ,4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1130,11 +1102,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1, 2, 3, 4],
-  "multi-line":
-  [1, 2,
-  3, 4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1142,11 +1111,8 @@ rule is what's important; the results of which are demonstrated below:
 
 ```json
 {
-  "single-line":
-  [1 ,2 ,3 ,4],
-  "multi-line":
-  [1 ,2 ,3
-  ,4]
+    "single-line": [1, 2, 3, 4],
+    "multi-line": [1, 2, 3, 4]
 }
 ```
 
@@ -1179,7 +1145,7 @@ Its CST is the following:
 
 We would want to add a line break after the first comma, but because the
 CST structure is nested, the node containing this comma
-(`product_expression (0, 1) - (0, 4)`) is *not* multi-line  Only the
+(`product_expression (0, 1) - (0, 4)`) is _not_ multi-line Only the
 top-level node `product_expression (0, 1) - (1, 1)` is multi-line.
 
 To solve this issue, we introduce user-defined scopes and softlines.
@@ -1204,10 +1170,10 @@ of one. For instance, this scope matches anything between parenthesis in a
 We have four predicates that insert softlines in custom scopes, in
 conjunction with the `#scope_id!` predicate:
 
-* `@prepend_empty_scoped_softline`
-* `@prepend_spaced_scoped_softline`
-* `@append_empty_scoped_softline`
-* `@append_spaced_scoped_softline`
+-   `@prepend_empty_scoped_softline`
+-   `@prepend_spaced_scoped_softline`
+-   `@append_empty_scoped_softline`
+-   `@append_spaced_scoped_softline`
 
 When one of these scoped softlines is used, their behaviour depends on
 the innermost encompassing scope with the corresponding `scope_id`. If
@@ -1335,68 +1301,68 @@ suggested way to work:
 
 4. Run:
 
-   ```
-   RUST_LOG=debug \
-   cargo test -p topiary-cli \
-              input_output_tester \
-              -- --nocapture
-   ```
+    ```
+    RUST_LOG=debug \
+    cargo test -p topiary-cli \
+               input_output_tester \
+               -- --nocapture
+    ```
 
-   Provided it works, it should output a _lot_ of log messages. Copy
-   that output to a text editor. You are particularly interested in the
-   CST output that starts with a line like this: `CST node: {Node
-   compilation_unit (0, 0) - (5942, 0)} - Named: true`.
+    Provided it works, it should output a _lot_ of log messages. Copy
+    that output to a text editor. You are particularly interested in the
+    CST output that starts with a line like this: `CST node: {Node
+compilation_unit (0, 0) - (5942, 0)} - Named: true`.
 
-   :bulb: As an alternative to using the debugging output, the
-   `vis` visualisation subcommand line option exists to output the
-   Tree-sitter syntax tree in a variety of formats.
+    :bulb: As an alternative to using the debugging output, the
+    `vis` visualisation subcommand line option exists to output the
+    Tree-sitter syntax tree in a variety of formats.
 
 5. The test run will output all the differences between the actual
    output and the expected output, e.g. missing spaces between tokens.
    Pick a difference you would like to fix, and find the line number and
    column in the input file.
 
-   :bulb: Keep in mind that the CST output uses 0-based line and column
-   numbers, so if your editor reports line 40, column 37, you probably
-   want line 39, column 36.
+    :bulb: Keep in mind that the CST output uses 0-based line and column
+    numbers, so if your editor reports line 40, column 37, you probably
+    want line 39, column 36.
 
 6. In the CST debug or visualisation output, find the nodes in this
    region, such as the following:
 
-   ```
-   [DEBUG atom_collection] CST node:   {Node constructed_type (39, 15) - (39, 42)} - Named: true
-   [DEBUG atom_collection] CST node:     {Node type_constructor_path (39, 15) - (39, 35)} - Named: true
-   [DEBUG atom_collection] CST node:       {Node type_constructor (39, 15) - (39, 35)} - Named: true
-   [DEBUG atom_collection] CST node:     {Node type_constructor_path (39, 36) - (39, 42)} - Named: true
-   [DEBUG atom_collection] CST node:       {Node type_constructor (39, 36) - (39, 42)} - Named: true
-   ```
+    ```
+    [DEBUG atom_collection] CST node:   {Node constructed_type (39, 15) - (39, 42)} - Named: true
+    [DEBUG atom_collection] CST node:     {Node type_constructor_path (39, 15) - (39, 35)} - Named: true
+    [DEBUG atom_collection] CST node:       {Node type_constructor (39, 15) - (39, 35)} - Named: true
+    [DEBUG atom_collection] CST node:     {Node type_constructor_path (39, 36) - (39, 42)} - Named: true
+    [DEBUG atom_collection] CST node:       {Node type_constructor (39, 36) - (39, 42)} - Named: true
+    ```
 
 7. This may indicate that you would like spaces after all
    `type_constructor_path` nodes:
 
-   ```scheme
-   (type_constructor_path) @append_space
-   ```
+    ```scheme
+    (type_constructor_path) @append_space
+    ```
 
-   Or, more likely, you just want spaces between pairs of them:
+    Or, more likely, you just want spaces between pairs of them:
 
-   ```scheme
-   (
-     (type_constructor_path) @append_space
-     .
-     (type_constructor_path)
-   )
-   ```
+    ```scheme
+    (
+      (type_constructor_path) @append_space
+      .
+      (type_constructor_path)
+    )
+    ```
 
-   Or maybe you want spaces between all children of `constructed_type`:
+    Or maybe you want spaces between all children of `constructed_type`:
 
-   ```scheme
-   (constructed_type
-     (_) @append_space
-     .
-     (_)
-   )
-   ```
+    ```scheme
+    (constructed_type
+      (_) @append_space
+      .
+      (_)
+    )
+    ```
 
 8. Run `cargo test` again, to see if the output is better now, and then
    return to step 5.
@@ -1438,34 +1404,34 @@ of choice open in another.
 
 ### Tree-Sitter Specific
 
-* [Syntax Tree Playground][tree-sitter-playground]: An interactive,
-  online playground for experimenting with Tree-sitter and its query
-  language.
-* [Neovim Treesitter Playground][nvim-treesitter]: A Tree-sitter
-  playground plugin for Neovim.
-* [Difftastic]: A tool that utilises Tree-sitter to perform syntactic
-  diffing.
+-   [Syntax Tree Playground][tree-sitter-playground]: An interactive,
+    online playground for experimenting with Tree-sitter and its query
+    language.
+-   [Neovim Treesitter Playground][nvim-treesitter]: A Tree-sitter
+    playground plugin for Neovim.
+-   [Difftastic]: A tool that utilises Tree-sitter to perform syntactic
+    diffing.
 
 ### Meta and Multi-Language Formatters
 
-* [format-all]: A formatter orchestrator for Emacs.
-* [null-ls.nvim]: An LSP framework for Neovim that facilitates formatter
-  orchestration.
-* [prettier]: A formatter with support for multiple (web-development
-  related) languages.
-* [treefmt]: A general formatter orchestrator, which unifies formatters
-  under a common interface.
+-   [format-all]: A formatter orchestrator for Emacs.
+-   [null-ls.nvim]: An LSP framework for Neovim that facilitates formatter
+    orchestration.
+-   [prettier]: A formatter with support for multiple (web-development
+    related) languages.
+-   [treefmt]: A general formatter orchestrator, which unifies formatters
+    under a common interface.
 
 ### Related Formatters
 
-* [gofmt]: The de facto standard formatter for Go, and major source of
-  inspiration for the style of our formatters.
-* [ocamlformat]: A formatter for OCaml.
-* [ocp-indent]: A tool to indent OCaml code.
-* [Ormolu]: Our formatter for Haskell, which follows similar design
-  principles as Topiary.
-* [rustfmt]: The de facto standard formatter for Rust.
-* [shfmt]: A parser, formatter and interpreter for Bash et al.
+-   [gofmt]: The de facto standard formatter for Go, and major source of
+    inspiration for the style of our formatters.
+-   [ocamlformat]: A formatter for OCaml.
+-   [ocp-indent]: A tool to indent OCaml code.
+-   [Ormolu]: Our formatter for Haskell, which follows similar design
+    principles as Topiary.
+-   [rustfmt]: The de facto standard formatter for Rust.
+-   [shfmt]: A parser, formatter and interpreter for Bash et al.
 
 <!-- Links -->
 

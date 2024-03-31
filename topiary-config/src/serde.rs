@@ -43,6 +43,7 @@ impl Language {
             "rust" => "rust",
             "toml" => "toml",
             "tree_sitter_query" => "tree-sitter-query",
+            "openscad" => "openscad",
             name => return Err(TopiaryConfigError::UnknownLanguage(name.to_string())),
         })
         .with_extension("scm");
@@ -75,6 +76,7 @@ impl Language {
             "rust" => tree_sitter_rust::language(),
             "toml" => tree_sitter_toml::language(),
             "tree_sitter_query" => tree_sitter_query::language(),
+            "openscad" => tree_sitter_openscad::language(),
             name => return Err(TopiaryConfigError::UnknownLanguage(name.to_string())),
         }
         .into())
@@ -92,6 +94,7 @@ impl Language {
             "rust" => "rust",
             "toml" => "toml",
             "tree_sitter_query" => "query",
+            "openscad" => "openscad",
             name => return Err(TopiaryConfigError::UnknownLanguage(name.to_string())),
         };
 

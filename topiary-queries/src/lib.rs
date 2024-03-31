@@ -52,3 +52,10 @@ pub fn toml() -> &'static str {
 pub fn tree_sitter_query() -> &'static str {
     include_str!("../queries/tree-sitter-query.scm")
 }
+
+/// Returns the Topiary-compatible query file for the
+/// Tree-sitter query language.
+#[cfg(feature = "openscad")]
+pub fn openscad() -> &'static str {
+    include_str!("../queries/openscad.scm")
+}
