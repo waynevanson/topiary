@@ -125,10 +125,9 @@
 )
 
 ;; Indents
-
 (
   ternary_expression
-  condition: (_) @append_indent_start @append_input_softline
+  condition: (_) @append_indent_start @append_spaced_softline
   consequence: (_) @append_spaced_softline
   alternative: (_) @append_indent_end
   (#multi_line_only!)
