@@ -1,9 +1,3 @@
-;; Language specification has remarkable differences from the tree sitter grammar implemented.
-;; https://files.openscad.org/grammar.xhtml#module_instantiation
-;;
-;; One goal of this formatter is to give the OpenSCAD user full control
-;; of where to put their new lines, since topiary doesn't consider line length.
-
 ;; Allow blank line before
 [
   (function_declaration)
@@ -12,6 +6,8 @@
   (comment)
   (transform_chain)
   (assignment)
+  (for_block)
+  (if_block)
 ] @allow_blank_line_before
 
 ;; semicolon means end of line
@@ -25,13 +21,20 @@
 ;; Space around.
 [ 
   "="
+  "+"
+  "-"
+  "/"
+  "*"
+  "^"
+  "%"
 ] @prepend_space @append_space
-
 
 ;; Space after.
 [
  "module"
  ","
+ "if"
+ "else"
 ] @append_space
 
 (
@@ -111,7 +114,7 @@
 (
   list
   "[" @append_indent_start @append_hardline
-  ((_) "," @append_empty_softline)*
+  ((_) "," @append_spaced_softline)*
   "]" @prepend_hardline @prepend_indent_end
   (#multi_line_only!)
 )
@@ -133,10 +136,19 @@
   (#multi_line_only!)
 )
 
+;; List comprehension
 
 ;; Module calls
+
 (
   transform_chain
   (module_call) @append_spaced_softline
   (transform_chain)
+)
+
+;; IF block
+(
+  if_block
+  condition: (_) @append_space
+  consequence: (_)
 )
