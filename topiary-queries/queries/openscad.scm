@@ -20,6 +20,7 @@
 ;; Space before.
 [
   (include_path)
+  "!"
 ] @prepend_space
 
 ;; Space around.
@@ -31,6 +32,14 @@
   "*"
   "^"
   "%"
+  "=="
+  "!="
+  "&&"
+  "||"
+  ">"
+  "<"
+  "<="
+  ">="
 ] @prepend_space @append_space
 
 ;; Space after.
