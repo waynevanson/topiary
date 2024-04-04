@@ -8,6 +8,10 @@
   (assignment)
   (for_block)
   (if_block)
+  (let_block)
+  (union_block)
+  (intersection_for_block)
+  (assign_block)
 ] @allow_blank_line_before
 
 ;; semicolon means end of line
