@@ -133,3 +133,11 @@
   alternative: (_) @append_indent_end
   (#multi_line_only!)
 )
+
+
+;; Module calls
+(
+  transform_chain
+  (module_call) @append_spaced_softline
+  (transform_chain)
+)
