@@ -115,3 +115,21 @@
   "]" @prepend_hardline @prepend_indent_end
   (#multi_line_only!)
 )
+
+;; Ternary operators
+
+;; Space around
+(
+  ternary_expression
+  (_) @append_space @prepend_space
+)
+
+;; Indents
+
+(
+  ternary_expression
+  condition: (_) @append_indent_start @append_input_softline
+  consequence: (_) @append_spaced_softline
+  alternative: (_) @append_indent_end
+  (#multi_line_only!)
+)
